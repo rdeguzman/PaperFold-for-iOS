@@ -244,7 +244,7 @@ CGFloat const kRightViewUnfoldThreshold = 0.3;
         transform = CGAffineTransformMakeTranslation(self.leftFoldView.frame.size.width, 0);
         [self.contentView setTransform:transform];
         
-        if (self.lastState!=PaperFoldStateLeftUnfolded && [self.delegate respondsToSelector:@selector(paperFoldView:didFoldAutomatically:toState:)])
+        if ([self.delegate respondsToSelector:@selector(paperFoldView:didFoldAutomatically:toState:)])
         {
             [self.delegate paperFoldView:self didFoldAutomatically:self.isAutomatedFolding toState:PaperFoldStateLeftUnfolded];
         }
@@ -269,7 +269,7 @@ CGFloat const kRightViewUnfoldThreshold = 0.3;
         transform = CGAffineTransformMakeTranslation(-self.rightFoldView.frame.size.width, 0);
         [self.contentView setTransform:transform];
         
-        if (self.lastState!=PaperFoldStateRightUnfolded && [self.delegate respondsToSelector:@selector(paperFoldView:didFoldAutomatically:toState:)])
+        if ([self.delegate respondsToSelector:@selector(paperFoldView:didFoldAutomatically:toState:)])
         {
             [self.delegate paperFoldView:self didFoldAutomatically:self.isAutomatedFolding toState:PaperFoldStateRightUnfolded];
         }
@@ -297,7 +297,7 @@ CGFloat const kRightViewUnfoldThreshold = 0.3;
         [self.contentView setTransform:transform];
         [self animateWithContentOffset:CGPointMake(0, 0) panned:NO];
         
-        if (self.lastState!=PaperFoldStateDefault && [self.delegate respondsToSelector:@selector(paperFoldView:didFoldAutomatically:toState:)])
+        if ([self.delegate respondsToSelector:@selector(paperFoldView:didFoldAutomatically:toState:)])
         {
             [self.delegate paperFoldView:self didFoldAutomatically:self.isAutomatedFolding toState:PaperFoldStateDefault];
         }
